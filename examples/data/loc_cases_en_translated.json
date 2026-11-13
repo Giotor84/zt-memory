@@ -1,0 +1,2910 @@
+{
+ "click": [
+  {
+   "repo": "click",
+   "id": "1241abaed4",
+   "fix": "1241abaed4e441582a21f4bf90c8482de02b92df",
+   "base": "f1f191ecd2c790b161187c78e7c88440e9524e5c",
+   "date": 1776787332,
+   "query": "When a command fails, the hint suggesting how to get help shows a help option name that has been reused for something else in that command; it should show the one that actually works.",
+   "gold": {
+    "src/click/exceptions.py": [
+     80,
+     81,
+     82
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Use non-shadowed help option name in error hint Fix."
+  },
+  {
+   "repo": "click",
+   "id": "2468b70997",
+   "fix": "2468b70997a6ec27ced4b4867954c90da3f92075",
+   "base": "ddede2147c9370ab8275f81db4826b6895d2e7dc",
+   "date": 1777504822,
+   "query": "On Linux, when typing an answer to a prompt, the backspace key and line wrapping of long lines work badly.",
+   "gold": {
+    "src/click/termui.py": [
+     9,
+     10,
+     13,
+     14,
+     59,
+     60,
+     150,
+     151,
+     152,
+     153,
+     154,
+     155,
+     246,
+     247,
+     248,
+     249,
+     250,
+     251
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix readline backspace/line-wrapping on linux"
+  },
+  {
+   "repo": "click",
+   "id": "c5cced7b30",
+   "fix": "c5cced7b3096804567688df645194e3ed3dfa88b",
+   "base": "2468b70997a6ec27ced4b4867954c90da3f92075",
+   "date": 1777505138,
+   "query": "On Windows, opening a link or a file in the default program fails because the command used is not an executable but a console built-in command.",
+   "gold": {
+    "src/click/_termui_impl.py": [
+     722,
+     723,
+     724,
+     725,
+     726,
+     727,
+     728,
+     729,
+     730,
+     731,
+     732,
+     733
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix: `_termui_impl.open_url()` — 'start' on Windows is a cmd built-in, not an executable"
+  },
+  {
+   "repo": "click",
+   "id": "19fd4d6e18",
+   "fix": "19fd4d6e18bc9fce451f92f422696b11169faa57",
+   "base": "c69643b60cf971cd5d8e5d3902632807ceab9b8f",
+   "date": 1777505851,
+   "query": "Shell autocompletion in fish breaks when an option's help text spans multiple lines.",
+   "gold": {
+    "src/click/shell_completion.py": [
+     183,
+     190,
+     420,
+     421,
+     423
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix: Ensure fish completion handles multiline help strings correctly"
+  },
+  {
+   "repo": "click",
+   "id": "73e1550065",
+   "fix": "73e155006526575548d143ef519995f540547e52",
+   "base": "fed9049f7a07550d560a91b30c5b0b3e17d54981",
+   "date": 1777924980,
+   "query": "The special placeholder values that mean 'value not set' have wrong types and are misused while parsing command-line arguments.",
+   "gold": {
+    "src/click/_utils.py": [
+     22,
+     25,
+     32,
+     35
+    ],
+    "src/click/core.py": [
+     3356,
+     3357
+    ],
+    "src/click/parser.py": [
+     53,
+     68,
+     78,
+     79,
+     80,
+     81,
+     84,
+     86,
+     189,
+     194,
+     428,
+     431
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix sentinel typing and its uses in parser"
+  },
+  {
+   "repo": "click",
+   "id": "fc6c7c47ed",
+   "fix": "fc6c7c47edd6110b6bd5a1a5297b2035214b0cd1",
+   "base": "5b9630f50fde938b72ad8c99542efe3a6f5717e2",
+   "date": 1778248067,
+   "query": "When a parameter's custom conversion function raises a value error, the message shown to the user loses the original error text.",
+   "gold": {
+    "src/click/types.py": [
+     198,
+     199,
+     200,
+     201,
+     202,
+     204
+    ]
+   },
+   "has_tests": true,
+   "query_en": "`FuncParamType` should use `ValueError` message in `self.fail()`"
+  },
+  {
+   "repo": "click",
+   "id": "a09c1c655e",
+   "fix": "a09c1c655eef3d43181eb46036b66cf058d72df4",
+   "base": "fc6c7c47edd6110b6bd5a1a5297b2035214b0cd1",
+   "date": 1778249099,
+   "query": "In prompts that hide input, such as passwords, the custom error message is not shown.",
+   "gold": {
+    "src/click/termui.py": [
+     206
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix: show custom error message in prompt with hide_input=True"
+  },
+  {
+   "repo": "click",
+   "id": "0f71fe771c",
+   "fix": "0f71fe771ceefd5715b3b375c9b2e3a701c0648e",
+   "base": "c943271a269e6941fcc51e3506ead074b9dda6be",
+   "date": 1778839091,
+   "query": "When two options write to the same parameter, the explicitly set default value on one of them is not respected.",
+   "gold": {
+    "src/click/core.py": [
+     456,
+     457,
+     2197,
+     2198,
+     2583,
+     2584,
+     2587,
+     2588,
+     2619,
+     2620,
+     2621,
+     2622,
+     2623,
+     2624,
+     2625,
+     2626,
+     2627
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix dual-option arbitration to respect explicit defaults Closes"
+  },
+  {
+   "repo": "click",
+   "id": "0551bf5358",
+   "fix": "0551bf53588ae87f462d336f24f853a156fefe3a",
+   "base": "7c99ebe23b931f27562d926814423cce85fd9766",
+   "date": 1778913571,
+   "query": "The function that writes the 'Usage' line of the help produces spurious characters.",
+   "gold": {
+    "src/click/formatting.py": [
+     166,
+     167
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `HelpFormatter.write_usage` producing spurious characters Closes"
+  },
+  {
+   "repo": "click",
+   "id": "d15f3c23a1",
+   "fix": "d15f3c23a177e80c324e1ee9681c9449c31ac965",
+   "base": "e0d1678ebc10cc663f2bc1973e0399b31415f8db",
+   "date": 1779138106,
+   "query": "A pager test fails randomly on macOS with free-threaded (no-GIL) Python: it must be skipped on that platform, adding a way to detect macOS.",
+   "gold": {
+    "src/click/_compat.py": [
+     14,
+     15
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix: Skip flaky pager test on macOS with free-threaded Python 3.14t Add a MAC platform constant in `_compat.py` and use it to skip `test_echo_via_pager` on macOS when running free-threaded Python, where generator exception tests are flaky in parallel execution."
+  },
+  {
+   "repo": "click",
+   "id": "c6bf75fa74",
+   "fix": "c6bf75fa74bff6523375cf91f97af0a7aae85fce",
+   "base": "3c12ce7050bf63c9fa522e5d7b95543037da0f63",
+   "date": 1779208541,
+   "query": "On Windows, opening a file in the default program fails if the path contains spaces.",
+   "gold": {
+    "src/click/_termui_impl.py": [
+     762
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fixes windows specific error regarding spaces in filepaths for open_url."
+  },
+  {
+   "repo": "click",
+   "id": "7d05a59b9d",
+   "fix": "7d05a59b9d46a415d85937630d1d812cf477f60a",
+   "base": "4b24a6c8f6658ef89fd6db4dcaf8ee88eef75dfa",
+   "date": 1779367406,
+   "query": "Inside a custom type conversion or an eager callback, asking where a parameter's value comes from returns nothing: since version 8.4.0 this information is recorded too late, after conversion.",
+   "gold": {
+    "src/click/core.py": [
+     2611,
+     2612,
+     2657,
+     2661,
+     2662,
+     2663,
+     2664
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix get_parameter_source() during type conversion and eager callbacks Record parameter source on the context immediately after consume_value(), before process_value() runs. In 8.4.0, set_parameter_source() was deferred until after type conversion and flag-group arbitration (0f71fe7,), so get_parameter_source() returned None inside ParamType.convert() and eager callbacks."
+  },
+  {
+   "repo": "click",
+   "id": "b7e5fd4cc7",
+   "fix": "b7e5fd4cc7de70280eccd39f2bb956df617e5519",
+   "base": "5b1aba82745cbde04c75e0bab995e5ddf0804196",
+   "date": 1779520405,
+   "query": "Since version 8.4.0, autocompletion in fish shell is broken, including for multi-line help texts.",
+   "gold": {
+    "src/click/shell_completion.py": [
+     184,
+     191,
+     192,
+     193,
+     194,
+     195,
+     430,
+     431,
+     432,
+     433,
+     434,
+     435,
+     436,
+     437,
+     438
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix broken fish completion and multiline help string Fix regression introduced in 8.4.0 by and properly fix and"
+  },
+  {
+   "repo": "click",
+   "id": "ddf20d0673",
+   "fix": "ddf20d0673788ebe8ec28b6031a24a36cba92115",
+   "base": "b7e5fd4cc7de70280eccd39f2bb956df617e5519",
+   "date": 1779524095,
+   "query": "Add the changelog entry, fix a warning admonition box in the documentation and add a test.",
+   "gold": {
+    "src/click/shell_completion.py": [
+     422,
+     423,
+     424
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Add changelog entry, fix admonition and add test"
+  },
+  {
+   "repo": "click",
+   "id": "82f377c547",
+   "fix": "82f377c547e1867d073f02bb8f476214d07e245b",
+   "base": "648d7c403829013ade629d63ddbfe808f6b2b770",
+   "date": 1779544779,
+   "query": "The label indicating that an option or command is deprecated is formatted badly in the help text.",
+   "gold": {
+    "src/click/core.py": [
+     1192,
+     2829
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix deprecated label formatting"
+  },
+  {
+   "repo": "click",
+   "id": "9a2d169fcf",
+   "fix": "9a2d169fcf5c3cce7b0cd5971ca2786e1f72c210",
+   "base": "77bd81f3f0c9d7fc8e1ca83f641c41489c508991",
+   "date": 1779703159,
+   "query": "On Python 3.10, using a generic TypedDict causes a type error.",
+   "gold": {
+    "src/click/types.py": [
+     192,
+     193,
+     261,
+     262,
+     263,
+     537,
+     538,
+     539,
+     540,
+     541,
+     542
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix generic typed dict `TypeError` on Python 3.10"
+  },
+  {
+   "repo": "click",
+   "id": "7eb57cff7c",
+   "fix": "7eb57cff7cd292fbd526eaf861c8f945ddeb07a3",
+   "base": "1050d955ea5a219c72467ad832934ea80682b5fb",
+   "date": 1779868389,
+   "query": "A pager test fails occasionally due to a race condition: the exception must be raised before yielding the value from the generator.",
+   "gold": {
+    "src/click/_compat.py": [
+     15
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix pager test race by raising before yield Refs:"
+  },
+  {
+   "repo": "click",
+   "id": "bff780ff9d",
+   "fix": "bff780ff9df7a8d0a271db2f80c17c7be32dc2a1",
+   "base": "2b8ba4f57414b62b60ae481398547dfce1694248",
+   "date": 1780036717,
+   "query": "Fix the formatting/layout and align the full version.",
+   "gold": {
+    "src/click/_termui_impl.py": [
+     432,
+     433,
+     434
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix layout, align full version"
+  },
+  {
+   "repo": "click",
+   "id": "762c97eef7",
+   "fix": "762c97eef7c1b3779678992f26a553a2a8c80793",
+   "base": "8929d392781c8113bc569f388c15c47b94f86581",
+   "date": 1781098297,
+   "query": "In the help usage line, a parameter's possible choices appear with double brackets.",
+   "gold": {
+    "src/click/core.py": [
+     3573,
+     3574,
+     3576
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix double-bracketing of choices in synopsis"
+  },
+  {
+   "repo": "click",
+   "id": "bec59289d8",
+   "fix": "bec59289d8cf9b9b4010642b2fee483e5f8eeefc",
+   "base": "916883afad450c0c9bbc4212817900949131adbd",
+   "date": 1781412833,
+   "query": "The program version is not found when the main module name differs from the installed package name.",
+   "gold": {
+    "src/click/decorators.py": [
+     437,
+     438,
+     462,
+     463,
+     489,
+     490,
+     500,
+     501,
+     502,
+     503
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `package_name` resolution when top-level module differs from distribution name Refs:"
+  },
+  {
+   "repo": "click",
+   "id": "1ac08db953",
+   "fix": "1ac08db953684e10ed97adbbda81381efd82ce09",
+   "base": "27b3ee2633f80aeb04d6e15c2fb3c91542efa32b",
+   "date": 1782470216,
+   "query": "The style checker reports a line too long in the PowerShell script template.",
+   "gold": {
+    "src/click/shell_completion.py": [
+     230,
+     231,
+     243,
+     249,
+     251
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix ruff E501 line-too-long in PowerShell template"
+  },
+  {
+   "repo": "click",
+   "id": "07c909f23f",
+   "fix": "07c909f23f0f83b5ca137c167b9a134d66201f67",
+   "base": "7925a3410d7098c28cfca3b2baa6c852666bbd14",
+   "date": 1783521999,
+   "query": "The function that colors text does not validate the colors it receives, and explicitly given black does not work.",
+   "gold": {
+    "src/click/termui.py": [
+     573,
+     574,
+     575,
+     576,
+     580,
+     657,
+     658,
+     678,
+     679,
+     680,
+     681,
+     682,
+     684,
+     685,
+     686,
+     687,
+     688
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Validate style() color arguments, fix explicit black color argument"
+  },
+  {
+   "repo": "click",
+   "id": "f58ca3e814",
+   "fix": "f58ca3e81424a35626c8a475eb59ab95589008ce",
+   "base": "420c8fb44eeadb537cae69d2fee3796e808558dd",
+   "date": 1787986435,
+   "query": "Copying, deep-copying or pickling the special 'unset' placeholder values creates new objects instead of keeping the same ones.",
+   "gold": {
+    "src/click/_utils.py": [
+     20,
+     21
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `copy`, `deepcopy` and `pickle` of `Sentinel` members"
+  },
+  {
+   "repo": "click",
+   "id": "fc518e4121",
+   "fix": "fc518e41218b447e875fe27244ae692c269bcb77",
+   "base": "08a7bc6d2a2af02268b09b3b5fd8079546c81c03",
+   "date": 1788208475,
+   "query": "If Ctrl+C is pressed just while the main command is starting, there is a race condition and the interrupt is not handled properly.",
+   "gold": {
+    "src/click/core.py": [
+     101,
+     102,
+     1548,
+     1549,
+     1562,
+     1563,
+     1564,
+     1565,
+     1569,
+     1570,
+     1572,
+     1573,
+     1574,
+     1575,
+     1576,
+     1578,
+     1579,
+     1580,
+     1581,
+     1582,
+     1583,
+     1584,
+     1585,
+     1586,
+     1587,
+     1588,
+     1589,
+     1590,
+     1591,
+     1594,
+     1595
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix race condition on `KeyboardInterrupt` arriving in `Command.main()` Closes"
+  },
+  {
+   "repo": "click",
+   "id": "f67c2bb6c2",
+   "fix": "f67c2bb6c2f055c1c7a57cd46c3697fc26a7742e",
+   "base": "6d5bac5c712195cbfa9666ba0ecbf0573cdea356",
+   "date": 1789110069,
+   "query": "The automatic truncation of the commands' short help text is wrong.",
+   "gold": {
+    "src/click/utils.py": [
+     67,
+     68,
+     70,
+     71,
+     72,
+     73,
+     74,
+     79,
+     80,
+     81,
+     82,
+     83,
+     85,
+     86,
+     87,
+     88,
+     89,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     100,
+     101,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108,
+     110,
+     112
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix short help abbreviation"
+  }
+ ],
+ "requests": [
+  {
+   "repo": "requests",
+   "id": "d8829f9f24",
+   "fix": "d8829f9f242149174e50f45e021ffb81fbbced70",
+   "base": "b227e3cb82c8d42ea27790d615ecafe12528d3bc",
+   "date": 1627951234,
+   "query": "If an invalid Windows network (UNC) path is passed, the code that extracts paths from zip files enters an infinite loop.",
+   "gold": {
+    "requests/utils.py": [
+     253,
+     254
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix extract_zipped_paths infinite loop when provided invalid unc path"
+  },
+  {
+   "repo": "requests",
+   "id": "fc106ab586",
+   "fix": "fc106ab586b9bfeca37c54780387b24b5d2b13b4",
+   "base": "1e5fad7433772b648fcbc921e2a79de5c4c6be8b",
+   "date": 1631706192,
+   "query": "Fix a few small typos.",
+   "gold": {
+    "requests/utils.py": [
+     157
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix minor typos"
+  },
+  {
+   "repo": "requests",
+   "id": "4246792b81",
+   "fix": "4246792b818ce804fb1bb98877c8ec7e8f71b2ca",
+   "base": "39d0fdd9096f7dceccbc8f82e1eda7dd64717a8e",
+   "date": 1640737968,
+   "query": "In one place the word 'schema' is mistakenly used instead of 'scheme', the initial part of the URL.",
+   "gold": {
+    "requests/exceptions.py": [
+     83,
+     87
+    ],
+    "requests/models.py": [
+     389
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix erroneous use of 'schema' instead of 'scheme'"
+  },
+  {
+   "repo": "requests",
+   "id": "38f3f8ecb9",
+   "fix": "38f3f8ecb93cadfac03a6b7b3173018ac829d0cf",
+   "base": "0192aac24123735b3eaf9b08df46429bb770c283",
+   "date": 1641310043,
+   "query": "Credentials written in the proxy URL are not read correctly.",
+   "gold": {
+    "requests/utils.py": [
+     976,
+     977
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix auth parsing for proxies"
+  },
+  {
+   "repo": "requests",
+   "id": "79c4a017fe",
+   "fix": "79c4a017fe341fb989d3a7876cf4e44b87601b58",
+   "base": "5e749546a26ce62e53d0a14ae1455f8b066fe19f",
+   "date": 1645813520,
+   "query": "The certificate bundle specified via an environment variable is not found correctly.",
+   "gold": {
+    "requests/sessions.py": [
+     705,
+     706,
+     708,
+     709,
+     717,
+     718
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix environment CA Bundle resolution"
+  },
+  {
+   "repo": "requests",
+   "id": "2d5517682b",
+   "fix": "2d5517682b3b38547634d153cea43d48fbc8cdb5",
+   "base": "8bce583b9547c7b82d44c8e97f37cf9a16cbe758",
+   "date": 1648493487,
+   "query": "When the response does not contain valid JSON, reading it as JSON sometimes raises one exception type and sometimes another, depending on whether the encoding is set.",
+   "gold": {
+    "requests/models.py": [
+     902,
+     903
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix inconsistent exception for JSONDecode error When calling .json() it was possible to raise a requests.exceptions.JSONDecodeError or ValueError depending on whether the encoding is set."
+  },
+  {
+   "repo": "requests",
+   "id": "bda7f0171f",
+   "fix": "bda7f0171f8bba17989d3a2c28dfa9a9261b1b65",
+   "base": "4d394574f5555a8ddcc38f707e0c9f57f55d9a3b",
+   "date": 1656528109,
+   "query": "The warning message should recommend using a secure protocol.",
+   "gold": {
+    "requests/models.py": [
+     441
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fixed warnings message to suggest using secure protocol."
+  },
+  {
+   "repo": "requests",
+   "id": "16a17a3ca7",
+   "fix": "16a17a3ca7134b0a56c49653165ef37cb6acfece",
+   "base": "61c324da43dd8b775d3930d76265538b3ca27bc1",
+   "date": 1674106644,
+   "query": "Remove the upper bound on the required Python version in the package configuration.",
+   "gold": {
+    "setup.py": [
+     97
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix: Remove '<4' from python_requires * As discussed in https://discuss.python.org/t/use-of-less-than-next-major-version-e-g-4-in-python-requires-setup-py/1066 and other places by the PyPA, use of upper bounds with python_requires for future versions of Python is unintended use of python_requires and actively discouraged."
+  },
+  {
+   "repo": "requests",
+   "id": "6e5b15d542",
+   "fix": "6e5b15d542a4e85945fd72066bb6cecbc3a82191",
+   "base": "147c8511ddbfa5e8f71bbf5c18ede0c4ceb3bba4",
+   "date": 1684769782,
+   "query": "Fix issues reported by the code style checker.",
+   "gold": {
+    "requests/sessions.py": [
+     329
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix linting issues"
+  },
+  {
+   "repo": "requests",
+   "id": "22db55a889",
+   "fix": "22db55a8896b69e53d0a3cc2764c27b832c81478",
+   "base": "6e5b15d542a4e85945fd72066bb6cecbc3a82191",
+   "date": 1687799363,
+   "query": "Fix a typo in the documentation.",
+   "gold": {
+    "requests/api.py": [
+     28
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix doc typo"
+  },
+  {
+   "repo": "requests",
+   "id": "c32b046243",
+   "fix": "c32b046243dcbf0dceb952da1317261109ac45c4",
+   "base": "839a8edec37c81a18ac8332cfbd44f44e1ae6206",
+   "date": 1700096428,
+   "query": "A space is missing in an error message.",
+   "gold": {
+    "src/requests/utils.py": [
+     1054
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix missing space in error message"
+  },
+  {
+   "repo": "requests",
+   "id": "15849947ec",
+   "fix": "15849947ec4b8b7c3c136a47e950499edfd36921",
+   "base": "c6de5a14e55588d2d3ff5726eaf92824ab1be4dc",
+   "date": 1700652844,
+   "query": "Fix a typo in a docstring: 'a' instead of 'as'.",
+   "gold": {
+    "src/requests/utils.py": [
+     862
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix docstring typo: a -> as"
+  },
+  {
+   "repo": "requests",
+   "id": "3ff3ff21dd",
+   "fix": "3ff3ff21dd45957c9e143cd500291959bb15f690",
+   "base": "96b22fa18c00831656ee4b286bf1c9062459b00a",
+   "date": 1706717633,
+   "query": "The JSON decode error cannot be serialized: pickling and unpickling it causes an error.",
+   "gold": {
+    "src/requests/exceptions.py": [
+     43,
+     44
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix - JSONDecodeError are not deserializable requests.exceptions.JSONDecodeError are not deserializable: calling `pickle.dumps` followed by `pickle.loads` will trigger an error."
+  },
+  {
+   "repo": "requests",
+   "id": "1604e20fc8",
+   "fix": "1604e20fc87ce212cf3a02474a6d7509b640cbbb",
+   "base": "eeafb6ab3a54ab01cbf864d452ea30f5fdb67ce8",
+   "date": 1710747396,
+   "query": "The check that decides whether a URL should bypass the proxy according to system settings always answers yes in some cases.",
+   "gold": {
+    "src/requests/utils.py": [
+     99,
+     100
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix the proxy_bypass_registry function all returning true in some cases."
+  },
+  {
+   "repo": "requests",
+   "id": "c799b8167a",
+   "fix": "c799b8167a13416833ad3b4f3298261a477e826f",
+   "base": "c65c780849563c891f35ffc98d3198b71011c012",
+   "date": 1747843685,
+   "query": "Some links in the documentation to the original author's website no longer work.",
+   "gold": {
+    "docs/conf.py": [
+     61
+    ]
+   },
+   "has_tests": false,
+   "query_en": "docs: fix dead links to kenreitz.org"
+  },
+  {
+   "repo": "requests",
+   "id": "5b4b64c346",
+   "fix": "5b4b64c3467fd7a3c03f91ee641aaa348b6bed3b",
+   "base": "7bc45877a86192af77645e156eb3744f95b47dae",
+   "date": 1749135333,
+   "query": "Add tests to prevent regression of vulnerability CVE-2024-47081 and remove a workaround no longer needed for home directory expansion in paths.",
+   "gold": {
+    "src/requests/utils.py": [
+     222,
+     223,
+     224,
+     225,
+     226,
+     227,
+     228,
+     229
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Add more tests to prevent regression of CVE 2024 47081 Remove workaround not needed since py38 for os.path.expanduser."
+  },
+  {
+   "repo": "requests",
+   "id": "3f07f990ac",
+   "fix": "3f07f990ac74f1e1691ba17ef8c14007f05846ab",
+   "base": "e57b5bf05c4e39281b5547b1bd05a5074dc96df3",
+   "date": 1749524065,
+   "query": "Typo in the documentation of the option that enables certificate verification.",
+   "gold": {
+    "src/requests/adapters.py": [
+     413
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix typo in documentation for verify"
+  },
+  {
+   "repo": "requests",
+   "id": "47914226c2",
+   "fix": "47914226c2968802f2cdee3f6f0f6e06e4472f64",
+   "base": "1b40fdd004bfc8ba5301bcf8a6908264e9b6b877",
+   "date": 1770948425,
+   "query": "An empty entry in the netrc credentials file is used incorrectly.",
+   "gold": {
+    "src/requests/utils.py": [
+     234
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix empty netrc entry usage"
+  },
+  {
+   "repo": "requests",
+   "id": "bc7dd0fc4d",
+   "fix": "bc7dd0fc4d56e808bcdd85ac2d797b3107c89259",
+   "base": "4443b1a847b190010c2972a658924b98b5db6360",
+   "date": 1774884289,
+   "query": "The regular expression that checks whether an HTTP header is valid has a cosmetic defect.",
+   "gold": {
+    "src/requests/_internal_utils.py": [
+     13,
+     14,
+     15,
+     16
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix cosmetic header validity parsing regex"
+  },
+  {
+   "repo": "requests",
+   "id": "f0198e6dfc",
+   "fix": "f0198e6dfc431a2293dc16e1b1e8fcddc910a7f3",
+   "base": "bc7dd0fc4d56e808bcdd85ac2d797b3107c89259",
+   "date": 1774884455,
+   "query": "A malformed value in the Content-Type header is interpreted incorrectly.",
+   "gold": {
+    "src/requests/utils.py": [
+     505,
+     509,
+     515,
+     519,
+     520,
+     521,
+     522,
+     523,
+     524
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix malformed value parsing for Content-Type"
+  },
+  {
+   "repo": "requests",
+   "id": "27e0981962",
+   "fix": "27e0981962d355b9532256f4dcb3d42f64b04d9c",
+   "base": "6ec76b4a36fba4a32fb72f5f9ba04e632635e477",
+   "date": 1777559713,
+   "query": "Fix the last typos.",
+   "gold": {
+    "src/requests/adapters.py": [
+     404
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix remaining typos"
+  },
+  {
+   "repo": "requests",
+   "id": "b684dcb9bb",
+   "fix": "b684dcb9bbf3aa557d1238e72062c4a29737dd1c",
+   "base": "dc9dbdfb3434c6e58d48fd102f93e5342308817e",
+   "date": 1778516053,
+   "query": "In sessions, the declared type of hooks is wrong.",
+   "gold": {
+    "src/requests/_types.py": [
+     153
+    ],
+    "src/requests/sessions.py": [
+     570
+    ]
+   },
+   "has_tests": false,
+   "query_en": "sessions: fix hooks type"
+  },
+  {
+   "repo": "requests",
+   "id": "6404f345e5",
+   "fix": "6404f345e562d962abe6700a1c357ec1e7e18232",
+   "base": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+   "date": 1778608261,
+   "query": "When the request body is an object that wraps a file and forwards attributes dynamically, it is not recognized as a stream to send in chunks.",
+   "gold": {
+    "src/requests/models.py": [
+     599,
+     600,
+     601
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `prepare_body` stream detection for `__getattr__`-based file wrappers ---------"
+  },
+  {
+   "repo": "requests",
+   "id": "e511bc7277",
+   "fix": "e511bc72777a94c45d004e010c597925092e1efe",
+   "base": "5691f596134c2feb121e595c77a0178921fcce61",
+   "date": 1778699810,
+   "query": "Headers passed with certain container types are mistakenly modified: mutability problems.",
+   "gold": {
+    "src/requests/_types.py": [
+     112,
+     113,
+     154
+    ],
+    "src/requests/models.py": [
+     85,
+     86,
+     313,
+     325
+    ],
+    "src/requests/sessions.py": [
+     563
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix mutability issues with headers input types"
+  },
+  {
+   "repo": "requests",
+   "id": "6f205ff422",
+   "fix": "6f205ff422bccd5e4c4fc0b64c5f3e7df5181db6",
+   "base": "661970d171d9c3e12e4c789c4768db647d8c4da0",
+   "date": 1780951971,
+   "query": "When uploading files with an object that wraps the file and forwards attributes dynamically, the file is not recognized in the multipart upload.",
+   "gold": {
+    "src/requests/models.py": [
+     239
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `_encode_files` detection for `__getattr__`-based file wrappers"
+  }
+ ],
+ "flask": [
+  {
+   "repo": "flask",
+   "id": "0d8c8ba71b",
+   "fix": "0d8c8ba71bc6362e6ea9af08146dc97e1a0a8abc",
+   "base": "9c3deeee963e62dfb60c9343fad4ec2ec752fdba",
+   "date": 1663502027,
+   "query": "In the documentation of the method that creates a fake request context for tests, an example is missing the reference to the application.",
+   "gold": {
+    "src/flask/app.py": [
+     2451
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix docstring of test_request_context Add missing `app.`."
+  },
+  {
+   "repo": "flask",
+   "id": "d7b6c1f670",
+   "fix": "d7b6c1f6703df405c69da45e7e0ba3d1aed512ce",
+   "base": "fa1ee7066807c21256e90089731c548b313394d2",
+   "date": 1672849192,
+   "query": "Nested blueprints do not correctly inherit the subdomain.",
+   "gold": {
+    "src/flask/blueprints.py": [
+     455,
+     456
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix subdomain inheritance for nested blueprints. Fixes"
+  },
+  {
+   "repo": "flask",
+   "id": "fc03d0dfab",
+   "fix": "fc03d0dfab64945169e1114cdc1fb39519a1e0c1",
+   "base": "2a33c1785412075c09f9f55b3e25f2bc995ca461",
+   "date": 1677173376,
+   "query": "Calling a setup method on an already registered blueprint should raise an error.",
+   "gold": {
+    "src/flask/blueprints.py": [
+     210,
+     211,
+     212,
+     213,
+     214,
+     215,
+     216,
+     217,
+     218,
+     219,
+     220,
+     221,
+     222
+    ]
+   },
+   "has_tests": false,
+   "query_en": "setup method on registered blueprint is error"
+  },
+  {
+   "repo": "flask",
+   "id": "0ec9192cf2",
+   "fix": "0ec9192cf25f5187d6521f2539489fa8d55336bb",
+   "base": "345f18442ceb29f9e365af99fc85bdc5986323d2",
+   "date": 1682452243,
+   "query": "Importing the safe HTML text class directly from the main package no longer works.",
+   "gold": {
+    "src/flask/__init__.py": [
+     79
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix importing Markup from flask"
+  },
+  {
+   "repo": "flask",
+   "id": "9532cba45d",
+   "fix": "9532cba45d2339e90ebf04f178b1e4f2064e7328",
+   "base": "0bc7356ce1ae11e633426902aba76d525f4523da",
+   "date": 1682953825,
+   "query": "Fix a type checker (mypy) warning.",
+   "gold": {
+    "src/flask/app.py": [
+     1855
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy finding"
+  },
+  {
+   "repo": "flask",
+   "id": "80cf589a26",
+   "fix": "80cf589a26d792820f135591eb8007bca891bf4f",
+   "base": "cc80a47f5be6c60e53c42ef9378e6db3b0e183b1",
+   "date": 1692466515,
+   "query": "The declared type of error handlers is wrong: they can also be async functions.",
+   "gold": {
+    "src/flask/typing.py": [
+     80
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Correct the error handler typing It may also be awaitable, as invocations are wrapped in ensure_sync."
+  },
+  {
+   "repo": "flask",
+   "id": "4104f29956",
+   "fix": "4104f29956b16f3e351462651ec3c6cc5a0dd069",
+   "base": "66743d4f9d865775258c845db339d3fcccd016b5",
+   "date": 1700081602,
+   "query": "Fix the type hint of the function that sends a file as a response.",
+   "gold": {
+    "src/flask/helpers.py": [
+     390
+    ]
+   },
+   "has_tests": false,
+   "query_en": "type hint fix for flask.send_file"
+  },
+  {
+   "repo": "flask",
+   "id": "1d5abfadd7",
+   "fix": "1d5abfadd7132c9a78e14e5ba6c07aed47115280",
+   "base": "b97165db75c6f4e99c3307b4a5a1f3b0d9f4de25",
+   "date": 1702508703,
+   "query": "A string is missing a double quote (issue 5342).",
+   "gold": {
+    "src/flask/cli.py": [
+     798
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fixing issue 5342: 'The double quote is missing in the string'"
+  },
+  {
+   "repo": "flask",
+   "id": "8fdab74cc8",
+   "fix": "8fdab74cc80c39f45aa65da5dd029c8d262756c3",
+   "base": "24ec38d6a0686f1a147420ebf4b31f5243e1cb42",
+   "date": 1704140670,
+   "query": "Automatic fixes from the formatting checks.",
+   "gold": {
+    "src/flask/helpers.py": [
+     52
+    ]
+   },
+   "has_tests": false,
+   "query_en": "[pre-commit.ci] auto fixes from pre-commit.com hooks for more information, see https://pre-commit.ci"
+  },
+  {
+   "repo": "flask",
+   "id": "ecc057dd48",
+   "fix": "ecc057dd4857e655f0844b781899a917852042a4",
+   "base": "3207af8827d4162ef5841249c46fbb9da043c551",
+   "date": 1706991278,
+   "query": "Fix the type annotation of the template loader.",
+   "gold": {
+    "src/flask/sansio/scaffold.py": [
+     11,
+     12,
+     275
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix jinja_loader annotation"
+  },
+  {
+   "repo": "flask",
+   "id": "1af8f95785",
+   "fix": "1af8f95785b85d0937153ee63d504c0b51934d80",
+   "base": "3435d2ff1589eb0c1a85cc294a20985910a1a606",
+   "date": 1706992566,
+   "query": "A call to the parent class method inside a list comprehension does not work.",
+   "gold": {
+    "src/flask/cli.py": [
+     861
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix super call in list comprehension"
+  },
+  {
+   "repo": "flask",
+   "id": "ccf125bf30",
+   "fix": "ccf125bf30102beedafb3ecef72376bfb6c90a4d",
+   "base": "db0fe9436e9da7f7bd14683542bbf33ba3c6d5e4",
+   "date": 1713916182,
+   "query": "Fix some type checker (mypy) warnings.",
+   "gold": {
+    "src/flask/sessions.py": [
+     371
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy findings"
+  },
+  {
+   "repo": "flask",
+   "id": "a363642a32",
+   "fix": "a363642a32880114c7944b1017f2f69bd4cc00eb",
+   "base": "f958b6500b2aeb8edc578a07f00546becdad4c80",
+   "date": 1715015398,
+   "query": "Fix a type checker warning caused by the new type of endpoints in the new Werkzeug version.",
+   "gold": {
+    "src/flask/wrappers.py": [
+     74
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy finding with new werkzeug endpoint type"
+  },
+  {
+   "repo": "flask",
+   "id": "eb1182a10e",
+   "fix": "eb1182a10e757b5e76009c69fdf3a88a5afc6840",
+   "base": "a363642a32880114c7944b1017f2f69bd4cc00eb",
+   "date": 1715015552,
+   "query": "Fix a type checker (mypy) warning.",
+   "gold": {
+    "src/flask/sessions.py": [
+     368,
+     371
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy finding"
+  },
+  {
+   "repo": "flask",
+   "id": "860a25c390",
+   "fix": "860a25c390eba8e6c089a818b02800dd9d789864",
+   "base": "273123f6b8fc0d871553f707e515816777c60e24",
+   "date": 1715016190,
+   "query": "Fix a type checker (mypy) warning.",
+   "gold": {
+    "src/flask/helpers.py": [
+     94
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy finding"
+  },
+  {
+   "repo": "flask",
+   "id": "176fdfa000",
+   "fix": "176fdfa0002360670f698d3828cfff11f97349f0",
+   "base": "2d31dce8262a68875c177645fa0c7585a45ac447",
+   "date": 1724456032,
+   "query": "Fix some type checker (mypy) warnings.",
+   "gold": {
+    "src/flask/helpers.py": [
+     49,
+     50,
+     52
+    ],
+    "src/flask/json/provider.py": [
+     116
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy findings"
+  },
+  {
+   "repo": "flask",
+   "id": "dffe303482",
+   "fix": "dffe3034825edc4f84aded013fc9c6590e545ed5",
+   "base": "c5a5576522273ff028018c4e13d1fc4d0260495b",
+   "date": 1729281875,
+   "query": "Fix some type checker (mypy) warnings.",
+   "gold": {
+    "src/flask/helpers.py": [
+     106
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy findings"
+  },
+  {
+   "repo": "flask",
+   "id": "98ae718976",
+   "fix": "98ae71897600a3162f529b1b30c70b8abdf0961b",
+   "base": "c62b03bcfd6e6440f8195e02f4678488e16121ac",
+   "date": 1730509594,
+   "query": "Fix a type checker (mypy) warning.",
+   "gold": {
+    "src/flask/app.py": [
+     1229
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix mypy finding"
+  },
+  {
+   "repo": "flask",
+   "id": "4995a775df",
+   "fix": "4995a775df21a206b529403bc30d71795a994fd4",
+   "base": "07c7d5730a2685ef2281cc635e289685e5c3d478",
+   "date": 1731430688,
+   "query": "Disabling subdomain matching in the application does not have the intended effect.",
+   "gold": {
+    "src/flask/app.py": [
+     428,
+     429,
+     430,
+     431,
+     432,
+     436,
+     437,
+     439,
+     440,
+     441,
+     442,
+     443,
+     444,
+     445,
+     448,
+     449,
+     450,
+     452,
+     453
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix subdomain_matching=False behavior"
+  },
+  {
+   "repo": "flask",
+   "id": "54c3f87af9",
+   "fix": "54c3f87af9f6c0d6622cec2c3d9695b0229fb8fa",
+   "base": "ea08f155d8d37d515559534bbe0f80ef5185466c",
+   "date": 1732413040,
+   "query": "Fix the type hint of the method that runs command-line commands in tests.",
+   "gold": {
+    "src/flask/testing.py": [
+     12,
+     13,
+     276
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix type hint for `cli_runner.invoke`"
+  },
+  {
+   "repo": "flask",
+   "id": "fb54159861",
+   "fix": "fb54159861708558b5f5658ebdc14709d984361c",
+   "base": "941efd4a36ed0f27e13758874f95e3aa1d3ee163",
+   "date": 1747099827,
+   "query": "With secret key rotation the order of the key list is wrong: the oldest must be first and the active one last.",
+   "gold": {
+    "src/flask/sessions.py": [
+     321,
+     325,
+     326
+    ]
+   },
+   "has_tests": true,
+   "query_en": "secret key rotation: fix key list ordering The `itsdangerous` serializer interface[1] expects keys to be provided with the oldest key at index zero and the active signing key at the end of the list."
+  },
+  {
+   "repo": "flask",
+   "id": "e82db2ca3a",
+   "fix": "e82db2ca3a22c9614c1987392c9cfaa8c6ce99ad",
+   "base": "d3b78fd18a8d9e224cb9ef58a23cec9b1ffc9ce9",
+   "date": 1770930183,
+   "query": "It is not possible to override the automatic addition of the OPTIONS method to routes.",
+   "gold": {
+    "src/flask/sansio/app.py": [
+     630,
+     631,
+     637,
+     638,
+     639,
+     640,
+     641,
+     642
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix provide_automatic_options override"
+  },
+  {
+   "repo": "flask",
+   "id": "7203feabf7",
+   "fix": "7203feabf723edae0286ae5dc64fec8ac4c91735",
+   "base": "de8429ffda8cfb54db175529e2bae72a24e1fa7e",
+   "date": 1786477485,
+   "query": "A server name with an IPv6 address is parsed incorrectly.",
+   "gold": {
+    "src/flask/app.py": [
+     14,
+     15,
+     724,
+     734,
+     735,
+     748
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix IPv6 server name parsing"
+  },
+  {
+   "repo": "flask",
+   "id": "de8429ffda",
+   "fix": "de8429ffda8cfb54db175529e2bae72a24e1fa7e",
+   "base": "514fc6b3e8402e4c646d5284e97a4f0ab50a7c4b",
+   "date": 1786477485,
+   "query": "Session transactions used in tests do not work with IPv6 addresses.",
+   "gold": {
+    "src/flask/testing.py": [
+     180
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix IPv6 session transactions"
+  },
+  {
+   "repo": "flask",
+   "id": "d73fa1cdcb",
+   "fix": "d73fa1cdcbd8b1465c151db8924ba58b1dd14e35",
+   "base": "d318b683471101618febed18996405ad26462110",
+   "date": 1788885641,
+   "query": "Fix a reference in the documentation.",
+   "gold": {
+    "src/flask/app.py": [
+     1508,
+     1523
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix docs ref"
+  }
+ ],
+ "attrs": [
+  {
+   "repo": "attrs",
+   "id": "300d3ee32c",
+   "fix": "300d3ee32ce6fb312b34b972879d1f7e5819626d",
+   "base": "f6d96456d81f93ef9531b6d40d8c06df412195d6",
+   "date": 1664353783,
+   "query": "The plugin that runs type checks inside tests seems broken on Python 3.11.",
+   "gold": {
+    "setup.py": [
+     66
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Looks like pytest-mypy is broken on 3.11"
+  },
+  {
+   "repo": "attrs",
+   "id": "2f447ca3e5",
+   "fix": "2f447ca3e54838e941c72373958e91de2dbb9d92",
+   "base": "300d3ee32ce6fb312b34b972879d1f7e5819626d",
+   "date": 1664353969,
+   "query": "Fix the version syntax.",
+   "gold": {
+    "setup.py": [
+     66,
+     67
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix version syntax"
+  },
+  {
+   "repo": "attrs",
+   "id": "a04ac9fdfb",
+   "fix": "a04ac9fdfb9f36f36b373b3725ac43c979520c30",
+   "base": "965972eba3db4ed1b7eca53fa19aed1f3fcd166b",
+   "date": 1667892974,
+   "query": "Pin the type checker version until we fix the tests that use it.",
+   "gold": {
+    "setup.py": [
+     65
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Pin mypy until we fix our pytest-mypy tests"
+  },
+  {
+   "repo": "attrs",
+   "id": "a71fbbad89",
+   "fix": "a71fbbad8950e127ebe4509b4ff0d730fb02a8b2",
+   "base": "c6668fa419d096d4ba52047f8d10d510da4d1712",
+   "date": 1673199268,
+   "query": "Exceptions defined as frozen classes do not allow setting the traceback.",
+   "gold": {
+    "src/attr/_make.py": [
+     15,
+     585,
+     586,
+     587,
+     588,
+     589,
+     590,
+     591,
+     592,
+     593,
+     594,
+     595,
+     596,
+     597,
+     598,
+     599,
+     600,
+     602,
+     603,
+     604,
+     605,
+     606
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix @frozen exceptions to allow __traceback__ to be set."
+  },
+  {
+   "repo": "attrs",
+   "id": "c9150d278c",
+   "fix": "c9150d278ced32056d73c239ff64034e5056bcb6",
+   "base": "882805e173ba970f381ed8f162b650eb7fbc1160",
+   "date": 1674629911,
+   "query": "Objects pickled before version 22.2.0 no longer load: compatibility must be restored.",
+   "gold": {
+    "src/attr/_make.py": [
+     937,
+     938,
+     939
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix backward compatibility with pickles before v22.2.0 * Remove unnecessary parameterization of tests"
+  },
+  {
+   "repo": "attrs",
+   "id": "dadc020597",
+   "fix": "dadc020597b9584dba026f86e00c9d6a9b681e6d",
+   "base": "bef2f5280ed08ab036a14a3b4a202dd9e30ad5f0",
+   "date": 1681640150,
+   "query": "Some documentation links broke because the Pyright type checker removed its dataclass transform specification page.",
+   "gold": {
+    "docs/conf.py": [
+     23,
+     24,
+     25
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix links broken by pyright removing their transform spec"
+  },
+  {
+   "repo": "attrs",
+   "id": "3786d5ab74",
+   "fix": "3786d5ab745ee3cf84374b17194e2c89ae36a16e",
+   "base": "a7e1a56da63fb6e846c4b6ec6cde02b94fa0cbe0",
+   "date": 1681640342,
+   "query": "Fix the next version number.",
+   "gold": {
+    "src/attr/_next_gen.py": [
+     183
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix next version"
+  },
+  {
+   "repo": "attrs",
+   "id": "8dbd2dbc04",
+   "fix": "8dbd2dbc04d5885ec8bd4e8ab56fc5fdab2c70e5",
+   "base": "82783230e922b739e46187ecf719790fe009db17",
+   "date": 1684475469,
+   "query": "Fix the formatting of a docstring: MyST cannot be used there yet.",
+   "gold": {
+    "src/attr/_next_gen.py": [
+     184,
+     185,
+     186
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix docstring markup No MyST in docstrings yet."
+  },
+  {
+   "repo": "attrs",
+   "id": "0bf0678a22",
+   "fix": "0bf0678a224dc89f150eb55861700864bec85cf6",
+   "base": "a37b556f7d762b7a6229b1fbf985965539571cd2",
+   "date": 1690659096,
+   "query": "Converting to a dictionary an object containing a namedtuple, asking to retain collection types, causes a type error.",
+   "gold": {
+    "src/attr/_funcs.py": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     244,
+     245,
+     246,
+     247,
+     248,
+     249,
+     250,
+     251,
+     252,
+     253,
+     254,
+     255,
+     256,
+     257,
+     259
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix TypeError for `asdict(<class with namedtuple>, retain_collection_types=True)` * Fix TypeError for asdict with namedtuples and retain_collection_types=True"
+  },
+  {
+   "repo": "attrs",
+   "id": "46a03dcef6",
+   "fix": "46a03dcef6d2698aa5934a1ee00d9523564dcd8c",
+   "base": "06b1bb414121bd21dd0781016a035ed1388aa136",
+   "date": 1695102771,
+   "query": "Typo in the documentation of the function that defines classes with the new API.",
+   "gold": {
+    "src/attr/_next_gen.py": [
+     62
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix typo in src/attr/_next_gen.py::define's docstring Fix typo"
+  },
+  {
+   "repo": "attrs",
+   "id": "01413df3db",
+   "fix": "01413df3db8e64437547f7fa6439a646fa116a98",
+   "base": "0d1be891df91a30ce912227c261000cff47d24a2",
+   "date": 1701321247,
+   "query": "Small typo in the error message of the minimum length validator.",
+   "gold": {
+    "src/attr/validators.py": [
+     553
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix for a tiny typo in `_MinLengthValidator` * tiny typo fix for min length validator's error string"
+  },
+  {
+   "repo": "attrs",
+   "id": "f9ff9135b4",
+   "fix": "f9ff9135b472c78a7333d6272c62b92217897464",
+   "base": "b9084fab02c009a593b604562a69f36a5915c8e5",
+   "date": 1709803426,
+   "query": "The 'not equal' comparison test fails with Python 3.13.",
+   "gold": {
+    "src/attr/_compat.py": [
+     16,
+     17
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix test_ne in test_cmp.py for Python 3.13 * Fix test_ne in test_cmp.py for Python 3.13"
+  },
+  {
+   "repo": "attrs",
+   "id": "f7e4e91073",
+   "fix": "f7e4e910737e864627ddae4a7b10d8e507dd21f6",
+   "base": "42c954869d2b5ac526d25ba3d57412ce1f81f92f",
+   "date": 1722583977,
+   "query": "Documentation: fix a typo.",
+   "gold": {
+    "src/attr/filters.py": [
+     50
+    ]
+   },
+   "has_tests": false,
+   "query_en": "docs: fix typo"
+  },
+  {
+   "repo": "attrs",
+   "id": "09161fc918",
+   "fix": "09161fc9181bf94aa3bbc5509c663d736a9553dc",
+   "base": "689a0e64012d1e576ebd99e786a254bc537582c6",
+   "date": 1722684713,
+   "query": "The program crashes when using together the pre-init method, keyword-only arguments and default values.",
+   "gold": {
+    "src/attr/_make.py": [
+     2210,
+     2212,
+     2213,
+     2214,
+     2218
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix crash when __pre_init__, kw_only, and defaults come together * Fix crash when __pre_init__, kw_only, and defaults come together"
+  },
+  {
+   "repo": "attrs",
+   "id": "6fda0a4e08",
+   "fix": "6fda0a4e086b56d7058855e4c15112c8f58de74c",
+   "base": "53e632c5218b729da6ac37a35b4b68379dc18999",
+   "date": 1722944983,
+   "query": "Make the converter a kind of adapter and fix the function that chains multiple converters.",
+   "gold": {
+    "src/attr/_make.py": [
+     2711,
+     2712,
+     2918,
+     2919,
+     2920,
+     2921,
+     2922,
+     2923,
+     2924,
+     2925,
+     2926,
+     2927,
+     2928,
+     2929
+    ],
+    "src/attr/setters.py": [
+     7,
+     59,
+     66
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Make Converter a kind of adapter, fix converters.pipe * Make Converter a kind of adapter, fix converters.pipe"
+  },
+  {
+   "repo": "attrs",
+   "id": "119e043b9f",
+   "fix": "119e043b9fccd995cefb800b00ae4a7645ddb807",
+   "base": "e82cde4c252f2fa24e575105d6a8489657e6a1f2",
+   "date": 1734272163,
+   "query": "Documentation: fix formatting.",
+   "gold": {
+    "src/attr/_make.py": [
+     2873,
+     2876
+    ]
+   },
+   "has_tests": false,
+   "query_en": "docs: fix markup"
+  },
+  {
+   "repo": "attrs",
+   "id": "3d42a6978a",
+   "fix": "3d42a6978ac60b487135db39218cfb742b100899",
+   "base": "55c688a5f8bc5c5f3a7cfc0af2d0ef7b2d439f26",
+   "date": 1744098236,
+   "query": "In the documentation of the 'greater than' validator it says 'greater or equal': copy-paste error.",
+   "gold": {
+    "src/attr/validators.py": [
+     488
+    ]
+   },
+   "has_tests": false,
+   "query_en": "doc: fix typo in attrs.validators.gt's docstring: ge -> gt Replace operator.ge -> operator.gt, to fix a likely copy-paste error."
+  },
+  {
+   "repo": "attrs",
+   "id": "937b1e2328",
+   "fix": "937b1e232803cc4ec9b9375ef525fc57c24ec498",
+   "base": "94caa57142c057ce52504cdf239ae0ed3168f9b5",
+   "date": 1753596412,
+   "query": "Fix for a reported issue.",
+   "gold": {
+    "src/attr/_make.py": [
+     2129,
+     2130,
+     2207,
+     2208,
+     2226,
+     2227,
+     2268,
+     2269,
+     2325,
+     2340
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fixes issue * fixes"
+  },
+  {
+   "repo": "attrs",
+   "id": "000c563473",
+   "fix": "000c563473400aa086f6486a9c38ace0e77ea219",
+   "base": "cbaef3f8f5ec3d6049b42c8c27f542c1571bb4c8",
+   "date": 1753716610,
+   "query": "With Python 3.14, slotted classes create reference cycles.",
+   "gold": {
+    "src/attr/_make.py": [
+     26,
+     27,
+     620,
+     621,
+     847,
+     848
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix slotted reference cycles on 3.14 * Fix slotted reference cycles on 3.14"
+  },
+  {
+   "repo": "attrs",
+   "id": "eccd966d80",
+   "fix": "eccd966d80aff5196efc959316961cfa780439f9",
+   "base": "e92fe52dfe1eb07167e6473724c5a8ada978add0",
+   "date": 1773493444,
+   "query": "The validator for optional values does not accept tuples with more than one element.",
+   "gold": {
+    "typing-examples/baseline.py": [
+     96,
+     97
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix `optional` validator to accept tuples of len > 1 * Fix `optional` validator to accept tuples of len > 1"
+  },
+  {
+   "repo": "attrs",
+   "id": "ce89f5d11f",
+   "fix": "ce89f5d11feb0805da9ed10bb165238cc959f1bb",
+   "base": "eccd966d80aff5196efc959316961cfa780439f9",
+   "date": 1773494050,
+   "query": "The message of exceptions raised when modifying a frozen object is not passed correctly.",
+   "gold": {
+    "src/attr/exceptions.py": [
+     5,
+     6,
+     19,
+     20
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix message passing in frozen errors Follow common exception workflows instead of working around it."
+  },
+  {
+   "repo": "attrs",
+   "id": "af9c510912",
+   "fix": "af9c510912ce604a94896cc35c27368d5baf6ae6",
+   "base": "ab7f8b2f4c0f747d5b1575247ce35e5adaad182e",
+   "date": 1773498233,
+   "query": "Temporarily disabling validators, when nested, does not restore the previous state.",
+   "gold": {
+    "src/attr/validators.py": [
+     81,
+     82,
+     83,
+     87
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix validators.disabled() to save/restore state on nesting * Fix validators.disabled() to save/restore previous state on nesting"
+  },
+  {
+   "repo": "attrs",
+   "id": "97f8d17565",
+   "fix": "97f8d175656bc03c373a1c9038048a4d312c307c",
+   "base": "6851ab593cd25f3c14393e9355d57d22bec2a074",
+   "date": 1785504486,
+   "query": "Class variables declared with a forward reference, i.e. as a string, are not recognized.",
+   "gold": {
+    "src/attr/_make.py": [
+     299,
+     300
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix ClassVar forward reference detection fix: detect ClassVar forward refs"
+  },
+  {
+   "repo": "attrs",
+   "id": "3e01de41b0",
+   "fix": "3e01de41b0efb9f51b92cc3372477be92033f4a8",
+   "base": "29b608137636417fbfdb6586ca42b58a540f8077",
+   "date": 1785663824,
+   "query": "Documentation: fix formatting.",
+   "gold": {
+    "src/attr/__init__.py": [
+     12,
+     83
+    ],
+    "src/attr/_funcs.py": [
+     454
+    ]
+   },
+   "has_tests": false,
+   "query_en": "docs: fix markup"
+  },
+  {
+   "repo": "attrs",
+   "id": "a602f78ff6",
+   "fix": "a602f78ff670f22be90fb8aea501a6cc30e10fdd",
+   "base": "bf47028ae4ec31975de7dfd389148756f15ee525",
+   "date": 1790858686,
+   "query": "Remove repeated words in the documentation and in a code comment.",
+   "gold": {
+    "src/attr/_make.py": [
+     2652
+    ]
+   },
+   "has_tests": false,
+   "query_en": "docs/fix: remove duplicated words in docs and source comment - docs/api.rst: drop duplicated 'from' in exception namespace sentence - src/attr/_make.py: drop duplicated 'picked' in alias auto-generation comment"
+  }
+ ],
+ "cobra": [
+  {
+   "repo": "cobra",
+   "id": "81d27c8f8d",
+   "fix": "81d27c8f8d2ec777e696a9bc06980264ea3bca00",
+   "base": "5b2b9e9f61d36ccb66167301f76a2292c3729855",
+   "date": 1647255953,
+   "query": "Fix some typos.",
+   "gold": {
+    "completions.go": [
+     315
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix some typos * fix some typos"
+  },
+  {
+   "repo": "cobra",
+   "id": "3a1795bc25",
+   "fix": "3a1795bc253b686e565770630a78baee3e7ae7f4",
+   "base": "f848943afd7212766aadc19256cf9e7384980281",
+   "date": 1647884135,
+   "query": "Fix the comment documenting a command's context.",
+   "gold": {
+    "command.go": [
+     169,
+     227,
+     228
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix Command.Context comment"
+  },
+  {
+   "repo": "cobra",
+   "id": "e1ded5cd94",
+   "fix": "e1ded5cd9480aa9921a8cb0f646b6b569ac1b9d8",
+   "base": "8afe9d1b56f1c876f8f56ea91f838a30e01563de",
+   "date": 1652809667,
+   "query": "In bash completion v2, when filtering descriptions, empty completions appear because of the last empty line.",
+   "gold": {
+    "bash_completionsV2.go": [
+     190,
+     191
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix(bash-v2): skip empty completions when filtering descriptions `read` gives a last null value following a trailing newline."
+  },
+  {
+   "repo": "cobra",
+   "id": "37d481d4d4",
+   "fix": "37d481d4d40a07b1a8f2f6c345124540e870c85c",
+   "base": "5b11656e45a6a6579298a3b28c71f456ff196ad6",
+   "date": 1654458359,
+   "query": "The zsh completion script mistakenly suggests the internal name of the completion command.",
+   "gold": {
+    "zsh_completions.go": [
+     78
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix: Don't complete _command on zsh Previously the generated zsh completion script started with the line"
+  },
+  {
+   "repo": "cobra",
+   "id": "7c9831d376",
+   "fix": "7c9831d376a6c048ae9f95b435cdde9dc14358a0",
+   "base": "ed7bb9dda481082672ed9ea60c29b3b70ae0fc04",
+   "date": 1655698281,
+   "query": "Descriptions in bash v3 completions are handled badly.",
+   "gold": {
+    "bash_completionsV2.go": [
+     222
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix handling of descriptions for bash v3 Fixes"
+  },
+  {
+   "repo": "cobra",
+   "id": "7790bf97fd",
+   "fix": "7790bf97fd40e285913066cf65387ad281cd6c2e",
+   "base": "6bf8cd85825800c5cbc63009b1fb2c54185f05ed",
+   "date": 1660426305,
+   "query": "In the generated YAML documentation, the subcommands' 'see also' section shows only the name and not the full command path.",
+   "gold": {
+    "doc/yaml_docs.go": [
+     131
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix: correct command path in see_also for YAML doc The `see_also` section for child commands would include only the name of the commands. This adds the whole path, similar to how it's done for the other documentation formats."
+  },
+  {
+   "repo": "cobra",
+   "id": "f911c0b89c",
+   "fix": "f911c0b89c6e0c41b6ad218c9235d8706c36a1b2",
+   "base": "7790bf97fd40e285913066cf65387ad281cd6c2e",
+   "date": 1660427087,
+   "query": "In bash completion v2, with the setting that forbids undefined variables (set -u), the active help message length check gives an 'unbound variable' error.",
+   "gold": {
+    "bash_completionsV2.go": [
+     153
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix(bash-v2): activeHelp length check syntax ```shell $ set -u $ foo=() $ echo ${#foo} bash: foo: unbound variable echo ${#foo[*]} 0 ``` The above shows that an empty array needs the suffix `[*]` when checking its length, or else it is considered unbound."
+  },
+  {
+   "repo": "cobra",
+   "id": "22b617914c",
+   "fix": "22b617914c8890ba20db7ceafcdc2ef4ca4817d3",
+   "base": "dbf85f6104904d539cabceebec234e817fa0df0c",
+   "date": 1661705199,
+   "query": "In a subcommand's help, an option with the same name as a persistent option of the parent command is not shown: the parent's one appears among global flags instead.",
+   "gold": {
+    "command.go": [
+     1508
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix: show flags that shadow parent persistent flag in child help This fixes a bug where a child flag that shadows (has the same name as) a parent persistent flag would not be shown in the child command's help output and the parent flag would be shown instead under the global flags section."
+  },
+  {
+   "repo": "cobra",
+   "id": "6b0bd3076c",
+   "fix": "6b0bd3076cfafd1c108264ed1e4aa0c0fe3f8537",
+   "base": "cc7e235fc26cfd0b5ae36c960f399eea4badaa3e",
+   "date": 1667880722,
+   "query": "If an option's value matches a subcommand name, that value is mistakenly removed from the arguments.",
+   "gold": {
+    "command.go": [
+     658,
+     659,
+     660,
+     661,
+     662,
+     663,
+     664,
+     689
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix: don't remove flag value that matches subcommand name When the command searches args to find the arg matching a particular subcommand name, it needs to ignore flag values, as it is possible that the value for a flag might match the name of the sub command."
+  },
+  {
+   "repo": "cobra",
+   "id": "c6b9971923",
+   "fix": "c6b99719235fcb18d950f972f27d95fdb0347f02",
+   "base": "430549841b79b3731b27df81e2752b729fd4ae43",
+   "date": 1669409240,
+   "query": "In PowerShell completion, the result of a loop is not always a list, which breaks completions.",
+   "gold": {
+    "powershell_completions.go": [
+     140
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix: force ForEach-Object to return array in pwsh completion Fixes"
+  },
+  {
+   "repo": "cobra",
+   "id": "f25a3c6e0b",
+   "fix": "f25a3c6e0b4220c616a3b342b57b055c1256d318",
+   "base": "923592041e4ae38e2ae5c3cc66c3eb1e0c27261f",
+   "date": 1671100790,
+   "query": "In a function a variable has the same name as an imported package and shadows it.",
+   "gold": {
+    "cobra.go": [
+     170,
+     171
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix: conflict import name with variable `template` is an import in `cobra.go` file and also used as a variable name, which masks the library in the scope of that function."
+  },
+  {
+   "repo": "cobra",
+   "id": "284f410104",
+   "fix": "284f4101043c4b1faebde411caec35a7b6e36494",
+   "base": "4dd4b25de38418174a6e859e8a32eaccca32dccc",
+   "date": 1680929253,
+   "query": "Typo in fish completions.",
+   "gold": {
+    "fish_completions.go": [
+     116
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix typo in fish completions"
+  },
+  {
+   "repo": "cobra",
+   "id": "2246fa82e9",
+   "fix": "2246fa82e91dda4486b9466fab691b41b516f747",
+   "base": "0e3a0bfe91a52670ba78ec020f3657d48954a4f7",
+   "date": 1686669169,
+   "query": "Fix the grammatically incorrect phrase 'allows to' in generated bash completion files: the Debian package checker (lintian) flags it.",
+   "gold": {
+    "bash_completions.go": [
+     88
+    ],
+    "bash_completionsV2.go": [
+     60
+    ],
+    "cobra.go": [
+     51
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix grammar: 'allows to' The use in generated bash completion files is getting flagged by Lintian (the Debian package linting tool)."
+  },
+  {
+   "repo": "cobra",
+   "id": "0c72800b8d",
+   "fix": "0c72800b8dba637092b57a955ecee75949e79a73",
+   "base": "c5dacb3ea4512e6766f86907dfa7014ceb9cb041",
+   "date": 1694194146,
+   "query": "Make the error message prefix customizable.",
+   "gold": {
+    "command.go": [
+     183,
+     184,
+     348,
+     349,
+     597,
+     598,
+     1053,
+     1082
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Customizable error message prefix"
+  },
+  {
+   "repo": "cobra",
+   "id": "8b1eba4761",
+   "fix": "8b1eba47616566fc4d258a93da48d5d8741865f0",
+   "base": "4cafa37bc4bb85633b4245aa118280fe5a9edcd5",
+   "date": 1698402225,
+   "query": "With the new version of the Go linter, new errors are reported that need fixing.",
+   "gold": {
+    "command.go": [
+     1448,
+     1449
+    ],
+    "doc/md_docs.go": [
+     29,
+     30,
+     86,
+     104,
+     141
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix linter errors When using golangci-lint v1.55.0 some new errors were being reported."
+  },
+  {
+   "repo": "cobra",
+   "id": "a73b9c391a",
+   "fix": "a73b9c391a9489d20f5ee1480e75d3b99fc8c7e2",
+   "base": "df547f5fc6ee86071f73c36c16afd885bb4e3f28",
+   "date": 1702861137,
+   "query": "For a plugin without subcommands, the help text shows the command name with a dash instead of the display name with a space.",
+   "gold": {
+    "command.go": [
+     1443,
+     1444,
+     1445,
+     1447
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix help text for runnable plugin command When creating a plugin without sub commands, the help text included the command name (kubectl-plugin) instead of the display name (kubectl plugin):"
+  },
+  {
+   "repo": "cobra",
+   "id": "df547f5fc6",
+   "fix": "df547f5fc6ee86071f73c36c16afd885bb4e3f28",
+   "base": "e63925d3216142ba2c8d7641d729c6c15f4433e7",
+   "date": 1702861137,
+   "query": "For plugins, the help message and the default help command must use the configured display name, not the command name.",
+   "gold": {
+    "command.go": [
+     1190,
+     1193,
+     1239,
+     1429,
+     1430,
+     1645,
+     1659,
+     1673,
+     1700,
+     1728,
+     1741,
+     1743,
+     1860
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix help text for plugins When using `CommandDisplayNameAnnotation` we want to use it instead of the command name in `--help` message or in the default help command."
+  },
+  {
+   "repo": "cobra",
+   "id": "371ae25d2c",
+   "fix": "371ae25d2c82e519feb48c82d142e6a696fd06dd",
+   "base": "e94f6d0dd9a5e5738dca6bce03c4b1207ffbc0ec",
+   "date": 1721172989,
+   "query": "The comment marking the method for setting output as deprecated does not follow formatting rules: it must start a paragraph.",
+   "gold": {
+    "command.go": [
+     283,
+     284
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix deprecation comment for Command.SetOutput Deprecation comments should be at the start of a paragraph [1], and because of that have a whitespace above them [2];"
+  },
+  {
+   "repo": "cobra",
+   "id": "756ba6dad6",
+   "fix": "756ba6dad61458cbbf7abecfc502d230574c57d2",
+   "base": "371ae25d2c82e519feb48c82d142e6a696fd06dd",
+   "date": 1722183487,
+   "query": "In completions, map-type options should be completable multiple times.",
+   "gold": {
+    "completions.go": [
+     404,
+     405
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix(completions): Complete map flags multiple times"
+  },
+  {
+   "repo": "cobra",
+   "id": "5bef9d8d87",
+   "fix": "5bef9d8d87ad1a1c73e74361bad9e38b3469a58e",
+   "base": "ff7c561cf741ac36ab319f528d93e738ae284835",
+   "date": 1728749307,
+   "query": "For plugins, the help and the version option output use the command name instead of the display name.",
+   "gold": {
+    "command.go": [
+     610,
+     1193,
+     1219,
+     1243,
+     1434,
+     1437,
+     1447,
+     1653,
+     1668,
+     1683,
+     1711,
+     1740,
+     1753,
+     1755,
+     1872
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix --version help and output for plugins * Fix --version help with CommandDisplayNameAnnotation"
+  },
+  {
+   "repo": "cobra",
+   "id": "4ba5566f57",
+   "fix": "4ba5566f5704a9c0d205e1ef3efc4896156d33fa",
+   "base": "41b26ec8bb59dfba580f722201bf371c4f5703dd",
+   "date": 1738456534,
+   "query": "In bash completion, if an option is marked as filename with an empty extension, the 'unbound variable' error appears.",
+   "gold": {
+    "bash_completionsV2.go": [
+     149
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix(bash): nounset unbound file filter variable on empty extension Happens at least if a flag is marked as filename, with \"\" given as extensions."
+  },
+  {
+   "repo": "cobra",
+   "id": "a97f9fd47b",
+   "fix": "a97f9fd47b290016526c8af2dac0531fea5cd773",
+   "base": "5f9c40898e795a9fb0fd5ca83b6e05c3720523d1",
+   "date": 1739729294,
+   "query": "The new type for completion functions may break projects that had already defined a similar type: it should be made an alias.",
+   "gold": {
+    "completions.go": [
+     132
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix CompletionFunc implementation The new type CompletionFunc could lead to a regression. This commit make the new `CompletionFunc` type a type alias instead, in case projects using Cobra have created their own similar type."
+  },
+  {
+   "repo": "cobra",
+   "id": "61968e893e",
+   "fix": "61968e893eee2f27696c2fbc8e34fa5c4afaf7c4",
+   "base": "10d4b48a79be3d4e89e6c45cb59f4d32a3d2ae19",
+   "date": 1765333130,
+   "query": "In fish shell completion, arguments must be quoted.",
+   "gold": {
+    "fish_completions.go": [
+     49,
+     56
+    ]
+   },
+   "has_tests": false,
+   "query_en": "fix: quote args in fish shell completion * fix: quote args in fish shell completion"
+  },
+  {
+   "repo": "cobra",
+   "id": "f2878bab8c",
+   "fix": "f2878bab8c96afd6e36968af96343b35dbb82a82",
+   "base": "85c12c2201a7d2bb8d2a731d41cfd8557a025c90",
+   "date": 1776280985,
+   "query": "Ignore the error reported by the linter.",
+   "gold": {
+    "completions.go": [
+     957,
+     958
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Ignore the linter error"
+  },
+  {
+   "repo": "cobra",
+   "id": "746ef07158",
+   "fix": "746ef07158728502482cea9f880a6f4b21ef29a9",
+   "base": "f2878bab8c96afd6e36968af96343b35dbb82a82",
+   "date": 1777063317,
+   "query": "Completions mistakenly modify the process arguments, due to a side effect when appending elements to a list.",
+   "gold": {
+    "completions.go": [
+     320
+    ]
+   },
+   "has_tests": true,
+   "query_en": "fix: prevent completions from mutating os.Args via append side effect Fixes"
+  }
+ ],
+ "ky": [
+  {
+   "repo": "ky",
+   "id": "88e24329ed",
+   "fix": "88e24329ed447b46f73183352e6fbce800f585d1",
+   "base": "830ab472fa18e1ba48861b2f36214d4c20a10f5d",
+   "date": 1789171944,
+   "query": "If an init hook modifies a nested object in the JSON body or the context, the change remains in the defaults and leaks into subsequent requests.",
+   "gold": {
+    "source/core/Ky.ts": [
+     19,
+     20,
+     128,
+     130
+    ],
+    "source/utils/merge.ts": [
+     114,
+     115
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `init` hook mutations to nested `json` and `context` values leaking across requests `cloneInitHookOptions` shallow-cloned `json` and `context`, so an `init` hook that mutated a nested object or array in place (for example `options.json.user.id++`) changed the instance defaults and leaked into every later request. Nested `retry` arrays are already deep-cloned for exactly this reason, so the shortcoming was inconsistent."
+  },
+  {
+   "repo": "ky",
+   "id": "0e2501bc9d",
+   "fix": "0e2501bc9dbb7da2ed46d51504873a5a7fda1c40",
+   "base": "d5bacefa0bf46315aa9964f7df02726bee3c3469",
+   "date": 1789171944,
+   "query": "In init hooks, headers are undefined when none were passed, and adding one throws an error.",
+   "gold": {
+    "source/core/Ky.ts": [
+     131
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `init` hooks receiving `undefined` for `headers` when no headers were provided The docs promise that `options.headers` in `init` hooks is always a plain object, but it was `undefined` unless some option layer set headers. Adding a header in place in an `init` hook then threw."
+  },
+  {
+   "repo": "ky",
+   "id": "91ea8a9477",
+   "fix": "91ea8a947747b406273df45777a62f2d91fef5c3",
+   "base": "7c1272ba0100feab8d62ccb913e7b5c8123dda99",
+   "date": 1789171944,
+   "query": "A query parameter removed by setting it to undefined stays in the URL if a later layer adds it again, so both the old and the new values are sent.",
+   "gold": {
+    "source/types/options.ts": [
+     119
+    ],
+    "source/utils/merge.ts": [
+     184,
+     185,
+     193,
+     194,
+     195,
+     196,
+     197,
+     204,
+     205,
+     212,
+     221,
+     229
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix a search parameter removed with `undefined` staying in the input URL when a later layer re-adds it Re-adding a key in a later `searchParams` layer dropped the deletion marker, so the key was never removed from the input URL and the old value was sent alongside the new one. The marker now persists, and a merged `URLSearchParams` layer applies its own deletions before its entries so re-added values are kept."
+  },
+  {
+   "repo": "ky",
+   "id": "7c1272ba01",
+   "fix": "7c1272ba0100feab8d62ccb913e7b5c8123dda99",
+   "base": "92ef60e2eea5b2a1aa5999937a7536924407ce00",
+   "date": 1789171944,
+   "query": "In Chromium, when the user aborts a request, the abort is mistaken for a network error and the request is retried.",
+   "gold": {
+    "source/core/Ky.ts": [
+     781,
+     782,
+     1200,
+     1201,
+     1207,
+     1208
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix a user abort in Chromium being reported as `NetworkError` and retried Chromium surfaces a user abort during a fetch or a body read as `TypeError: Failed to fetch` instead of an `AbortError`. Ky matched that message as a dropped connection, so an aborted request was wrapped in `NetworkError` and, for retriable methods, retried instead of failing. When a network-looking error arrives and the user-provided signal is aborted, Ky now throws the signal's reason instead, so a user abort surfaces consistently across runtimes, including custom reasons passed to `abort()`. This also makes the existi"
+  },
+  {
+   "repo": "ky",
+   "id": "92ef60e2ee",
+   "fix": "92ef60e2eea5b2a1aa5999937a7536924407ce00",
+   "base": "0f2e28172c3f29c5cc97caed7e160efb23ca4b20",
+   "date": 1789171944,
+   "query": "Passing the browser's native fetch function as an option causes the 'Illegal invocation' error.",
+   "gold": {
+    "source/core/Ky.ts": [
+     1188,
+     1189,
+     1190,
+     1193
+    ],
+    "source/utils/timeout.ts": [
+     26,
+     27,
+     28
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `fetch: window.fetch` throwing \"Illegal invocation\" in browsers The `fetch` option was invoked as a method of Ky's internal options object, so a native `window.fetch` passed as-is was called with that object as `this`. Chromium rejects this with \"Failed to execute 'fetch' on 'Window': Illegal invocation\" and WebKit with \"Can only call Window.fetch on instances of Window\". The function is now called unbound, which native fetch accepts."
+  },
+  {
+   "repo": "ky",
+   "id": "0f2e28172c",
+   "fix": "0f2e28172c3f29c5cc97caed7e160efb23ca4b20",
+   "base": "e1b088e3c1e9c66e68c66ed8fffa821ce3cfbcfb",
+   "date": 1789171944,
+   "query": "If a custom fetch function throws immediately, the timeout timer stays active and then aborts the new retry attempt.",
+   "gold": {
+    "source/utils/timeout.ts": [
+     15,
+     16,
+     17,
+     18,
+     19,
+     21,
+     22,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix a stale timeout timer aborting the retried attempt when a custom `fetch` throws synchronously `timeout()` only cleared its timer through the promise chain of the `fetch` result, so a `fetch` option that threw synchronously left the timer running. When the request was then retried, the stale timer fired mid-flight and aborted the shared `AbortController`, cancelling the new attempt or its body read. The timer is now cleared in a `finally` block so it is always released."
+  },
+  {
+   "repo": "ky",
+   "id": "e1b088e3c1",
+   "fix": "e1b088e3c1e9c66e68c66ed8fffa821ce3cfbcfb",
+   "base": "ee3dec1ac01db18a6ea245109d2f616433b25660",
+   "date": 1789171944,
+   "query": "Timeouts and user aborts do not stop a request returned by beforeRequest or beforeRetry hooks.",
+   "gold": {
+    "source/core/Ky.ts": [
+     990,
+     1097,
+     1103,
+     1107,
+     1136,
+     1246,
+     1247
+    ],
+    "source/types/hooks.ts": [
+     123,
+     172
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix timeouts and user aborts not cancelling a `Request` returned from `beforeRequest` or `beforeRetry` hooks A fresh `Request` returned from these hooks carried its own signal, so Ky's managed signal never reached the fetch. User `signal` aborts left the request pending forever, and per-attempt, body-read, and total timeouts threw `TimeoutError` without cancelling the in-flight fetch. The returned request now gets the managed signal re-attached, the same way `ky.retry({request})` already did. Only `Request` instances get the managed signal; `Request`-like objects are used as-is since the `Requ"
+  },
+  {
+   "repo": "ky",
+   "id": "ee3dec1ac0",
+   "fix": "ee3dec1ac01db18a6ea245109d2f616433b25660",
+   "base": "0655b9d581869ff3ac0e2ecae432b605c2f45199",
+   "date": 1789171944,
+   "query": "Extending an instance with retry options as an object, and then with a number, loses the other retry options.",
+   "gold": {
+    "source/utils/merge.ts": [
+     313,
+     316,
+     317
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix extending an object `retry` with a number dropping the other retry options"
+  },
+  {
+   "repo": "ky",
+   "id": "0655b9d581",
+   "fix": "0655b9d581869ff3ac0e2ecae432b605c2f45199",
+   "base": "b99fb794bcd8ded50df73d0c7aa161c432577284",
+   "date": 1789171944,
+   "query": "When extending an instance, overriding or removing an HTTP header written with different casing does not work, even though header names are case-insensitive.",
+   "gold": {
+    "source/types/ky.ts": [
+     92
+    ],
+    "source/types/options.ts": [
+     419
+    ],
+    "source/utils/merge.ts": [
+     134,
+     135,
+     136,
+     137,
+     141
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix header overrides and removals in `.extend()` ignoring header name case with plain objects HTTP header names are case-insensitive, but merging plain header objects used key-sensitive object spreading. Setting a header with a different spelling kept both entries, so the earlier value could win or both were sent, and deleting with `undefined` did nothing unless the spelling matched exactly. Merged plain header objects now keep lowercase keys, like `Headers` does, so overrides and `undefined` deletions match regardless of spelling and `init` hooks can rely on lowercase keys like `options.heade"
+  },
+  {
+   "repo": "ky",
+   "id": "e087b0cebc",
+   "fix": "e087b0cebcb2c2931b6b3047df59eadc7427b70c",
+   "base": "178767e4a0307c2d6bc95adcbde0164391eea7a8",
+   "date": 1789171944,
+   "query": "beforeError hooks run twice when the response body fails after its reading has already timed out.",
+   "gold": {
+    "source/core/Ky.ts": [
+     761,
+     762,
+     763,
+     764,
+     765,
+     766,
+     767,
+     768,
+     769,
+     770,
+     771,
+     772,
+     773,
+     774,
+     775,
+     776,
+     783,
+     784
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `beforeError` hooks running again when a body fails after the body read timed out The network error wrapping for body reads was attached to the body promise itself, so a body that failed after the timeout had already won the race processed the discarded error and ran `beforeError` hooks a second time in the background. The wrapping now happens only on the awaited path."
+  },
+  {
+   "repo": "ky",
+   "id": "178767e4a0",
+   "fix": "178767e4a0307c2d6bc95adcbde0164391eea7a8",
+   "base": "224034d10df5cd47db23adb3aa78efe26274fc1f",
+   "date": 1789171944,
+   "query": "The type of the function that decides whether to retry rejects functions that return nothing.",
+   "gold": {
+    "source/types/retry.ts": [
+     143,
+     177
+    ],
+    "test-d/normalized-options.ts": [
+     64,
+     65
+    ]
+   },
+   "has_tests": false,
+   "query_en": "Fix `shouldRetry` type rejecting functions that return nothing"
+  },
+  {
+   "repo": "ky",
+   "id": "224034d10d",
+   "fix": "224034d10df5cd47db23adb3aa78efe26274fc1f",
+   "base": "50c381041bdc66f2ed8636cda216ad4fd05f57f1",
+   "date": 1789171944,
+   "query": "A header set to undefined in an init hook is sent as the word 'undefined'.",
+   "gold": {
+    "source/core/Ky.ts": [
+     438
+    ],
+    "source/utils/merge.ts": [
+     65,
+     66
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix headers set to `undefined` in `init` hooks being sent as the string `\"undefined\"` Headers modified by `init` hooks skip the option merging that filters `undefined` values, and the `Headers` constructor turns `undefined` into the string `'undefined'`, so `options.headers.foo = undefined` in an `init` hook sent `foo: undefined` instead of removing the header. Plain header objects are now applied entry by entry so `undefined` deletes the header, matching the documented behavior for `.extend()`."
+  },
+  {
+   "repo": "ky",
+   "id": "50c381041b",
+   "fix": "50c381041bdc66f2ed8636cda216ad4fd05f57f1",
+   "base": "4e0bf0bdbe373f0158b51ebb5113cf5279c54b8a",
+   "date": 1789171944,
+   "query": "If the connection drops while reading the response body with the JSON or text shortcuts, the raw runtime error is thrown instead of a network error.",
+   "gold": {
+    "source/core/Ky.ts": [
+     761
+    ],
+    "source/errors/NetworkError.ts": [
+     7
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix a connection dropped while reading the body through shortcuts surfacing as a raw `TypeError` When the connection dropped while `.json()`, `.text()`, or another shortcut was reading the response body, the runtime's raw `TypeError` (for example, `terminated` from undici) escaped unchanged, so `isNetworkError()` was false and `beforeError` hooks were skipped, unlike body-read timeouts which are processed. Such errors are now wrapped in `NetworkError` with the original error as `cause` and run through `beforeError`. They are still not retried, matching body-read timeouts."
+  },
+  {
+   "repo": "ky",
+   "id": "4e0bf0bdbe",
+   "fix": "4e0bf0bdbe373f0158b51ebb5113cf5279c54b8a",
+   "base": "fa9f6a7389369935557fd908f0998a24621adc73",
+   "date": 1789171944,
+   "query": "When setting query parameters, options taken from a Request object passed as input, like credentials, cache and redirect, are lost.",
+   "gold": {
+    "source/core/Ky.ts": [
+     496,
+     497,
+     498,
+     501,
+     502,
+     503,
+     504
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `searchParams` dropping request options inherited from a `Request` input When `searchParams` is set, the request is rebuilt with the new URL from the options alone, so `credentials`, `cache`, `redirect`, `integrity`, `referrer`, and `referrerPolicy` set on a `Request` input were reset to their defaults. In browsers this silently stopped sending cookies for `credentials: 'include'` requests. The rebuilt request now reads those options back from the request that was already constructed, so inherited values survive and explicit options still win."
+  },
+  {
+   "repo": "ky",
+   "id": "fa9f6a7389",
+   "fix": "fa9f6a7389369935557fd908f0998a24621adc73",
+   "base": "ee806e0085374bbbe203c907bab5ed2dba804d6e",
+   "date": 1789171944,
+   "query": "In init hooks the context is undefined when not passed, even though the documentation says it is always an object.",
+   "gold": {
+    "source/core/Ky.ts": [
+     129
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `context` being `undefined` in `init` hooks The `context` option is documented to be available in all hooks and to always be an object, but `init` hooks received the raw options where a missing `context` stayed `undefined`, so `options.context.key = value` threw. Init hooks now get an empty object when no context was provided, matching every other hook."
+  },
+  {
+   "repo": "ky",
+   "id": "c6c5dbfedd",
+   "fix": "c6c5dbfedd648c94fefe35a06267b31c52dd9b82",
+   "base": "c5dc4e6a923cbadd6385d01f35a468295b17b23c",
+   "date": 1789171944,
+   "query": "The custom JSON parser is ignored when reading JSON from a cloned copy of the response.",
+   "gold": {
+    "source/core/Ky.ts": [
+     375,
+     376,
+     609,
+     610,
+     612,
+     613,
+     614,
+     615,
+     616,
+     617
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix `parseJson` being ignored by `response.clone().json()` The custom `json()` was set as an own property on the response, so every clone fell back to the native parser. This affected `response.clone()` on the returned response, on the streamed `onDownloadProgress` response, and on the response passed to `afterResponse` hooks. Clones are now decorated too and keep the same request context."
+  },
+  {
+   "repo": "ky",
+   "id": "6520f642c2",
+   "fix": "6520f642c2a237ac39cde0ce8ce02b6e1ecf4db9",
+   "base": "88e24329ed447b46f73183352e6fbce800f585d1",
+   "date": 1789172930,
+   "query": "Abort does not propagate to retries, and uploads do not work where the request does not support streaming.",
+   "gold": {
+    "source/core/Ky.ts": [
+     1170,
+     1264,
+     1277
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix retry abort propagation and uploads without request stream support"
+  },
+  {
+   "repo": "ky",
+   "id": "8546080785",
+   "fix": "854608078545442344a29a0714a50b978e6d77e9",
+   "base": "3e2d81ab7c4d80f0f22741c64bdc3923bcba4427",
+   "date": 1789174062,
+   "query": "JSON error responses are not correctly decoded as UTF-8.",
+   "gold": {
+    "source/core/Ky.ts": [
+     878
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix UTF-8 decoding of JSON error responses"
+  },
+  {
+   "repo": "ky",
+   "id": "8cf26e0e78",
+   "fix": "8cf26e0e78d7a734f5e2846bdd65b66a936c13b3",
+   "base": "854608078545442344a29a0714a50b978e6d77e9",
+   "date": 1789174300,
+   "query": "When merging JSON objects, old elements remain in arrays.",
+   "gold": {
+    "source/utils/merge.ts": [
+     350
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix stale array entries when merging JSON objects"
+  },
+  {
+   "repo": "ky",
+   "id": "87a96db814",
+   "fix": "87a96db81480f1cb71e2cd51bce8c454d32b29ee",
+   "base": "06ebf18e1927b3772726037bda5a78d4b7eb6dba",
+   "date": 1789205075,
+   "query": "In retries and hooks, thrown values that are not Error objects must be preserved as they are.",
+   "gold": {
+    "source/core/Ky.ts": [
+     1124
+    ],
+    "source/errors/ForceRetryError.ts": [
+     19,
+     20,
+     21
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Preserve non-Error values in retry errors and hooks"
+  },
+  {
+   "repo": "ky",
+   "id": "481f6f731b",
+   "fix": "481f6f731b0c311bc2f677604aca3595558b22d1",
+   "base": "96a25cce552a0128653ca8833e95291ae5082509",
+   "date": 1789343744,
+   "query": "The return type of the bytes shortcut is not compatible with Blob and Response.",
+   "gold": {
+    "source/types/ResponsePromise.ts": [
+     19
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Fix bytes shortcut return type for Blob and Response compatibility"
+  },
+  {
+   "repo": "ky",
+   "id": "96a25cce55",
+   "fix": "96a25cce552a0128653ca8833e95291ae5082509",
+   "base": "e4269f070384e60e1c3fd3be4de9e199c07814c9",
+   "date": 1789343744,
+   "query": "Abort reasons must be preserved while reading the body of an HTTP error response.",
+   "gold": {
+    "source/core/Ky.ts": [
+     248,
+     249
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Preserve abort reasons while reading HTTP error bodies"
+  },
+  {
+   "repo": "ky",
+   "id": "fa0eac4cee",
+   "fix": "fa0eac4cee101ed15649f09c4cd7a58aedb0be6d",
+   "base": "a2dfbd7ec108e733d665957ebf945ed7657a52ff",
+   "date": 1791400117,
+   "query": "Avoid rebuilding the request when unnecessary, report zero when the total size is unknown, and fix two old tests.",
+   "gold": {
+    "source/core/Ky.ts": [
+     524,
+     525,
+     526,
+     527,
+     528,
+     529,
+     530,
+     531,
+     532,
+     533,
+     534,
+     535,
+     536,
+     537,
+     538,
+     539,
+     540,
+     541,
+     542,
+     543,
+     544,
+     545,
+     546,
+     547,
+     548,
+     549
+    ],
+    "source/utils/body.ts": [
+     83
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Skip a needless request rebuild, report an unknown total as zero, and fix two stale tests"
+  },
+  {
+   "repo": "ky",
+   "id": "74224d8b27",
+   "fix": "74224d8b277147371ed6a6321e21c775dd941c71",
+   "base": "619c42765fa22b02966f39443fbc28167b707caa",
+   "date": 1791400458,
+   "query": "If the progress callback throws something that is not an Error, that too must not cause the request to be retried.",
+   "gold": {
+    "source/core/Ky.ts": [
+     480,
+     481,
+     482,
+     702,
+     1454,
+     1455,
+     1456
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Make a non-Error progress-callback throw non-retriable too"
+  },
+  {
+   "repo": "ky",
+   "id": "4cc6698cf3",
+   "fix": "4cc6698cf35873f288177f4073cbc0bdbbf83374",
+   "base": "deb5a331d07b82dbc7eed308804626ea7f1d6383",
+   "date": 1791400508,
+   "query": "An error thrown in the beforeRetry hook from another JavaScript realm, like an iframe or a worker, is not recognized; the original error must be kept as the cause.",
+   "gold": {
+    "source/core/Ky.ts": [
+     670,
+     677,
+     709,
+     740,
+     754,
+     765,
+     773,
+     1384,
+     1385
+    ]
+   },
+   "has_tests": true,
+   "query_en": "Recognise a cross-realm `beforeRetry` error and keep the retried error as the cause"
+  }
+ ]
+}
